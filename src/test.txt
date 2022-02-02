@@ -1,0 +1,107 @@
+
+
+
+
+
+
+
+
+
+*********************************************************+
+/** @jsxImportSource @emotion/react */
+
+import { css } from '@emotion/react';
+import { useState } from 'react';
+import GuestList from './GuestListOutput.js';
+
+function App(props) {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [addGuest, setAddGuest] = useState(false);
+  let arrayGuest = [];
+
+  const guestList = [{ nameFirst: '', nameLast: '', attend: false }];
+
+  return (
+    <div>
+      <label htmlFor="First name">First Name</label>
+      <input
+        value={firstName}
+        onChange={(event) => setFirstName(event.currentTarget.value)}
+        id="First Name"
+        name="FirstName"
+      />
+      <label htmlFor="Last name">Last Name</label>
+      <input
+        value={lastName}
+        onChange={(event) => setLastName(event.currentTarget.value)}
+        id="First Name"
+        name="FirstName"
+      />
+
+      {lastName &&
+        firstName &&
+        guestList.push({
+          nameFirst: firstName,
+          nameLast: lastName,
+        })}
+
+      {console.log(guestList, lastName, firstName)}
+      {(arrayGuest = [...guestList])}
+
+      <button
+        value={addGuest}
+        onClick={() => {
+          setAddGuest(() => true);
+        }}
+      >
+        add guest
+      </button>
+
+      {addGuest
+        ? JSON.stringify(arrayGuest)
+        : 'please enter first and last name'}
+      {/* {setAddGuest(false)} */}
+    </div>
+  );
+}
+
+export default App;
+*********************************************
+
+
+
+      {lastName &&
+        firstName &&
+        guestList({
+          nameFirst: firstName,
+          nameLast: lastName,
+        })}
+
+      {/* {(arrayTwo = [...guestList])} */}
+      {/* {console.log(arrayTwo)}
+      {arrayTwo.map((user) => {
+        <p>{user}</p>;
+      })} */}
+
+      <button
+        value={addGuest}
+        onClick={() => {
+          setAddGuest(() => true);
+        }}
+      >
+        add guest
+      </button>
+
+      {addGuest ? (
+        <GuestList>
+          <li>{firstName}</li>
+          <li>{lastName}</li>
+        </GuestList>
+      ) : (
+        'please enter first and last name'
+      )}
+
+      {console.log(guestList, lastName, firstName)}
+
+      *****************************************************
