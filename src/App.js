@@ -1,8 +1,9 @@
-import { css } from '@emotion/react';
 /** @jsxImportSource @emotion/react */
-import axios from 'axios';
+
+import { css } from '@emotion/react';
+// import axios from 'axios';
 import { useEffect, useState } from 'react';
-import GetNames from './GuestList/GetNames';
+import AddGuests from './GuestList/AddGuest';
 import PeopleOnTheGuestList from './GuestList/PeopleOnTheGuestList';
 
 const styleButon = css`
@@ -19,29 +20,21 @@ function App() {
   const [newGuest, setNewGuest] = useState({ guest: {} });
   const [guestList, setGuestList] = useState([]);
   const [isSelected, setIsSelected] = useState(false);
-  const [guestId, setGuestId] = useState('0');
 
-  function removeGuest(deleteID) {
-    alert('Hello:');
-  }
   const baseUrl = 'http://localhost:4000';
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`${baseUrl}/guests`);
       const allGuests = await response.json();
-      console.log(allGuests);
-
       setGuestList(allGuests);
     };
     fetchData().catch(console.error);
   }, []);
 
-  console.log('hello');
-
   return (
     <>
-      <GetNames
+      <AddGuests
         firstName={firstName}
         setFirstName={setFirstName}
         lastName={lastName}
@@ -58,8 +51,6 @@ function App() {
         guestList={guestList}
         checkBox={isSelected}
         setCheckBox={setIsSelected}
-        removeGuest={removeGuest}
-        guestId={setGuestId}
         baseUrl={baseUrl}
         setGuestList={setGuestList}
       />

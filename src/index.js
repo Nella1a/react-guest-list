@@ -18,8 +18,12 @@ ReactDOM.render(
           width: 100%;
           height: 100vh;
           margin: 0;
+          background-color: #e0e7f2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-          font-size: 17px;
+          font-size: 18px;
           font-family: sans-serif;
         }
         h2,
@@ -27,11 +31,6 @@ ReactDOM.render(
         h1 {
           padding: 0;
           margin: 0;
-        }
-        div {
-          width: 150px;
-          height: 150px;
-          margin: 50px;
         }
       `}
     />

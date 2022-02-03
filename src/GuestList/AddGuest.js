@@ -2,6 +2,10 @@
 import { css } from '@emotion/react';
 import React, { useState } from 'react';
 
+const styleInput = css`
+  display: flex;
+`;
+
 export default function GetNames(props) {
   const baseUrl = 'http://localhost:4000';
 
@@ -35,7 +39,7 @@ export default function GetNames(props) {
   }
 
   return (
-    <>
+    <div data-test-id="guest" css={styleInput}>
       <label htmlFor="First name">First Name: </label>
       <input
         value={props.firstName}
@@ -49,6 +53,6 @@ export default function GetNames(props) {
         onChange={(event) => props.setLastName(event.target.value)}
         onKeyPress={(event) => handleKeyDown(event)}
       />
-    </>
+    </div>
   );
 }
