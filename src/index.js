@@ -32,6 +32,10 @@ ReactDOM.render(
           padding: 0;
           margin: 0;
         }
+        input[type='text'] {
+          width: 18px;
+          height: px;
+        }
       `}
     />
     <App />
