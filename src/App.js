@@ -14,7 +14,7 @@ function App() {
   const [checkBox, setCheckBox] = useState(false);
   // const [isSelected, setIsSelected] =
   //   useState(false); /*  local copy of attending status */
-  const baseUrl = 'http://localhost:4000';
+  const baseUrl = 'https://mn-react-guest-list.herokuapp.com/';
 
   // Get Guestlist from server
   useEffect(() => {
@@ -28,6 +28,7 @@ function App() {
     fetchData().catch(console.error);
   }, []);
 
+  console.log('Loading', loading);
   // add guest to the guestlist by pressing return in the last name field or add guest button
   async function handleKeyDown(event) {
     if (
