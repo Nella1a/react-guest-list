@@ -95,8 +95,9 @@ function App() {
         </article>
       </section>
       {loading ? (
-        <div css={styleLoadingPage}>Loading...</div>
+        'Loading...'
       ) : (
+        // <div css={styleLoadingPage}>Loading...</div>
         <PeopleOnTheGuestList
           guestList={guestList}
           checkBox={checkBox}
