@@ -19,6 +19,7 @@ function App() {
   // Get Guestlist from server
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const response = await fetch(`${baseUrl}/guests`);
       const allGuests = await response.json();
       setGuestList(allGuests);
@@ -94,7 +95,7 @@ function App() {
         </article>
       </section>
       {loading ? (
-        <div css={styleLoadingPage}>Loading...</div>
+        (<div css={styleLoadingPage}>Loading...</div>)(setLoading(false))
       ) : (
         <PeopleOnTheGuestList
           guestList={guestList}
