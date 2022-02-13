@@ -58,10 +58,12 @@ function App() {
     }
   }
 
+  const disabled = loading ? true : false;
+  console.log('loading:', loading);
   return (
     <div data-test-id="guest">
       {loading ? (
-        <div css={styleLoadingPage}>Loading... {setLoading(false)}</div>
+        <div css={styleLoadingPage}>Loading...</div>
       ) : (
         <div>
           <section css={containerAddGuest}>
@@ -74,6 +76,7 @@ function App() {
                   key="01"
                   onChange={(event) => setFirstName(event.target.value)}
                 />
+                disabled={disabled}
               </p>
               <p>
                 <label htmlFor="Last name">Last Name </label>
@@ -82,6 +85,7 @@ function App() {
                   key="02"
                   onChange={(event) => setLastName(event.target.value)}
                   onKeyPress={(event) => handleKeyDown(event)}
+                  disabled={disabled}
                 />
               </p>
               <p>

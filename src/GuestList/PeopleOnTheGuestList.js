@@ -34,7 +34,10 @@ export default function PeopleOnTheGuestList(props) {
             )}
           </p>
           <p>
-            <button onClick={() => eventHandlerRemoveGuest(guest.id, props)}>
+            <button
+              onClick={() => eventHandlerRemoveGuest(guest.id, props)}
+              aria-label="Remove"
+            >
               Remove
             </button>
           </p>
