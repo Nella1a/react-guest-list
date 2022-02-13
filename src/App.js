@@ -1,26 +1,22 @@
 /** @jsxImportSource @emotion/react */
 
-import { css } from '@emotion/react';
-// import axios from 'axios';
 import { useEffect, useState } from 'react';
-import AddGuests from './GuestList/AddGuests';
+import { containerAddGuest, styleLoadingPage } from './elements';
 import PeopleOnTheGuestList from './GuestList/PeopleOnTheGuestList';
 
 function App() {
-  const [firstName, setFirstName] = useState(''); // Userinput first name
-  const [lastName, setLastName] = useState(''); // Userinput last name
+  const [firstName, setFirstName] = useState(''); /* Userinput first name*/
+  const [lastName, setLastName] = useState(''); /* Userinput last name */
   const [loading, setLoading] = useState(true); //
-  const [guestList, setGuestList] = useState([{}]); // local copy of guestlist
+  const [guestList, setGuestList] = useState([
+    {},
+  ]); /* local copy of guestlist */
   const [checkBox, setCheckBox] = useState(false);
-  const [isSelected, setIsSelected] = useState(false); // local copy of attending status
+  // const [isSelected, setIsSelected] =
+  //   useState(false); /*  local copy of attending status */
   const baseUrl = 'http://localhost:4000';
 
-  const styleLoadingPage = css`
-    width: 100%;
-    height: 100%;
-  `;
-
-  // Fetch Guestlist from server
+  // Get Guestlist from server
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`${baseUrl}/guests`);
@@ -30,25 +26,71 @@ function App() {
     };
     fetchData().catch(console.error);
   }, []);
-  console.log('Checkbox Set:', checkBox);
-  console.log('GuestList:', guestList);
+
+  // add guest to the guestlist by pressing return in the last name field or add guest button
+  async function handleKeyDown(event) {
+    if (
+      (event.key === 'Enter' || event.type === 'click') &&
+      firstName &&
+      lastName
+    ) {
+      const response = await fetch(`${baseUrl}/guests`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+        }),
+      });
+      const createdGuest = await response.json();
+
+      // make a local copy of guestlist & added guest
+      const copyOfGuestlist = [...guestList, createdGuest];
+      setGuestList(copyOfGuestlist);
+
+      // clear both input fields after guest has been created
+      if (createdGuest) {
+        setLastName('');
+        setFirstName('');
+      }
+    }
+  }
+
   return (
     <div data-test-id="guest">
       {loading ? (
         <div css={styleLoadingPage}>is loading</div>
       ) : (
         <div>
-          <AddGuests
-            firstName={firstName}
-            setFirstName={setFirstName}
-            lastName={lastName}
-            setLastName={setLastName}
-            baseUrl={baseUrl}
-            guestList={guestList}
-            setGuestList={setGuestList}
-            checkBox={isSelected}
-            setCheckBox={setIsSelected}
-          />
+          <section css={containerAddGuest}>
+            <h2>Add Guest</h2>
+            <article>
+              <p>
+                <label htmlFor="First name">First Name </label>
+                <input
+                  value={firstName}
+                  key="01"
+                  onChange={(event) => setFirstName(event.target.value)}
+                />
+              </p>
+              <p>
+                <label htmlFor="Last name">Last Name </label>
+                <input
+                  value={lastName}
+                  key="02"
+                  onChange={(event) => setLastName(event.target.value)}
+                  onKeyPress={(event) => handleKeyDown(event)}
+                />
+              </p>
+              <p>
+                <button onClick={(click) => handleKeyDown(click)}>
+                  Add Guest
+                </button>
+              </p>
+            </article>
+          </section>
 
           <PeopleOnTheGuestList
             guestList={guestList}

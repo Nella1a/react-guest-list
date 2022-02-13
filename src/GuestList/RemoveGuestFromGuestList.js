@@ -1,5 +1,4 @@
 // remove guest from the guestlist
-
 export function eventHandlerRemoveGuest(guestId, props) {
   const fetchData = async () => {
     const response = await fetch(`${props.baseUrl}/guests/${guestId}`, {

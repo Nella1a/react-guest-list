@@ -1,43 +1,14 @@
 /** @jsxImportSource @emotion/react */
-import { css, Global } from '@emotion/react';
+import { Global } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { globalStyle } from './elements';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Global
-      styles={css`
-        *,
-        ::after,
-        :before {
-          box-sizing: border-box;
-        }
-        body {
-          width: 100%;
-          height: 100vh;
-          margin: 0;
-          background-color: #e0e7f2;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          font-size: 18px;
-          font-family: sans-serif;
-        }
-        h2,
-        h3,
-        h1 {
-          padding: 0;
-          margin: 0;
-        }
-        input[type='text'] {
-          width: 18px;
-          height: px;
-        }
-      `}
-    />
+    <Global styles={globalStyle} />
     <App />
   </React.StrictMode>,
   document.getElementById('root'),

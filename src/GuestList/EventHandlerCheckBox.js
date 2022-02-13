@@ -1,5 +1,5 @@
 export async function eventHandlerCheckBox(checkBox, guestId, props) {
-  // update guest on the server
+  // update guest on server
   const response = await fetch(`${props.baseUrl}/guests/${guestId}`, {
     method: 'PUT',
     headers: {
