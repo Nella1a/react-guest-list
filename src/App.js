@@ -62,48 +62,47 @@ function App() {
 
   return (
     <div data-test-id="guest">
+      {/* {loading ? (
+        <div css={styleLoadingPage}>Loading...</div>
+      ) : ( */}
+      {/* <div> */}
+      <section css={containerAddGuest}>
+        <h2>Add Guest</h2>
+        <article>
+          <p>
+            <label htmlFor="First name">First Name </label>
+            <input
+              value={firstName}
+              key="01"
+              onChange={(event) => setFirstName(event.target.value)}
+              disabled={disabled}
+            />
+          </p>
+          <p>
+            <label htmlFor="Last name">Last Name </label>
+            <input
+              value={lastName}
+              key="02"
+              onChange={(event) => setLastName(event.target.value)}
+              onKeyPress={(event) => handleKeyDown(event)}
+              disabled={disabled}
+            />
+          </p>
+          <p>
+            <button onClick={(click) => handleKeyDown(click)}>Add Guest</button>
+          </p>
+        </article>
+      </section>
       {loading ? (
         <div css={styleLoadingPage}>Loading...</div>
       ) : (
-        <div>
-          <section css={containerAddGuest}>
-            <h2>Add Guest</h2>
-            <article>
-              <p>
-                <label htmlFor="First name">First Name </label>
-                <input
-                  value={firstName}
-                  key="01"
-                  onChange={(event) => setFirstName(event.target.value)}
-                  disabled={disabled}
-                />
-              </p>
-              <p>
-                <label htmlFor="Last name">Last Name </label>
-                <input
-                  value={lastName}
-                  key="02"
-                  onChange={(event) => setLastName(event.target.value)}
-                  onKeyPress={(event) => handleKeyDown(event)}
-                  disabled={disabled}
-                />
-              </p>
-              <p>
-                <button onClick={(click) => handleKeyDown(click)}>
-                  Add Guest
-                </button>
-              </p>
-            </article>
-          </section>
-
-          <PeopleOnTheGuestList
-            guestList={guestList}
-            checkBox={checkBox}
-            setCheckBox={setCheckBox}
-            baseUrl={baseUrl}
-            setGuestList={setGuestList}
-          />
-        </div>
+        <PeopleOnTheGuestList
+          guestList={guestList}
+          checkBox={checkBox}
+          setCheckBox={setCheckBox}
+          baseUrl={baseUrl}
+          setGuestList={setGuestList}
+        />
       )}
     </div>
   );
