@@ -95,7 +95,7 @@ function App() {
         </article>
       </section>
       {loading ? (
-        (<div css={styleLoadingPage}>Loading...</div>)(setLoading(false))
+        <div css={styleLoadingPage}>Loading...</div>
       ) : (
         <PeopleOnTheGuestList
           guestList={guestList}
