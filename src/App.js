@@ -61,7 +61,7 @@ function App() {
   return (
     <div data-test-id="guest">
       {loading ? (
-        <div css={styleLoadingPage}>Loading...</div>
+        <div css={styleLoadingPage}>Loading... {setLoading(false)}</div>
       ) : (
         <div>
           <section css={containerAddGuest}>
