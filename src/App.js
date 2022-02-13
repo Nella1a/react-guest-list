@@ -7,7 +7,7 @@ import PeopleOnTheGuestList from './GuestList/PeopleOnTheGuestList';
 function App() {
   const [firstName, setFirstName] = useState(''); /* Userinput first name*/
   const [lastName, setLastName] = useState(''); /* Userinput last name */
-  const [loading, setLoading] = useState(true); //
+  const [loading, setLoading] = useState(true);
   const [guestList, setGuestList] = useState([
     {},
   ]); /* local copy of guestlist */
@@ -59,7 +59,7 @@ function App() {
   }
 
   const disabled = loading ? true : false;
-  console.log('loading:', loading);
+
   return (
     <div data-test-id="guest">
       {loading ? (
@@ -75,8 +75,8 @@ function App() {
                   value={firstName}
                   key="01"
                   onChange={(event) => setFirstName(event.target.value)}
+                  disabled={disabled}
                 />
-                disabled={disabled}
               </p>
               <p>
                 <label htmlFor="Last name">Last Name </label>
