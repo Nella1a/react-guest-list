@@ -72,25 +72,27 @@ function App() {
             <h2>Add Guest</h2>
             <article>
               <p>
-                <label htmlFor="First name">First name </label>
-                <input
-                  id="First name"
-                  value={firstName}
-                  key={firstName}
-                  onChange={(event) => setFirstName(event.target.value)}
-                  disabled={disabled}
-                />
+                <label>
+                  First name
+                  <input
+                    value={firstName}
+                    key={firstName}
+                    onChange={(event) => setFirstName(event.target.value)}
+                    disabled={disabled}
+                  />
+                </label>
               </p>
               <p>
-                <label htmlFor="Last name">Last name </label>
-                <input
-                  id="Last name"
-                  value={lastName}
-                  key={lastName}
-                  onChange={(event) => setLastName(event.target.value)}
-                  onKeyPress={(event) => handleKeyDown(event)}
-                  disabled={disabled}
-                />
+                <label>
+                  Last name
+                  <input
+                    value={lastName}
+                    key={lastName}
+                    onChange={(event) => setLastName(event.target.value)}
+                    onKeyPress={(event) => handleKeyDown(event)}
+                    disabled={disabled}
+                  />
+                </label>
               </p>
               <p>
                 <button onClick={(click) => handleKeyDown(click)}>
