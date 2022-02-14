@@ -101,14 +101,15 @@ function App() {
               </p>
             </article>
           </section>
-
-          <PeopleOnTheGuestList
-            guestList={guestList}
-            checkBox={checkBox}
-            setCheckBox={setCheckBox}
-            baseUrl={baseUrl}
-            setGuestList={setGuestList}
-          />
+          {guestList.length !== 0 && (
+            <PeopleOnTheGuestList
+              guestList={guestList}
+              checkBox={checkBox}
+              setCheckBox={setCheckBox}
+              baseUrl={baseUrl}
+              setGuestList={setGuestList}
+            />
+          )}
         </div>
       )}
     </div>

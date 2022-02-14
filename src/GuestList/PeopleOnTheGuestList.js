@@ -7,7 +7,7 @@ import { eventHandlerRemoveGuest } from './RemoveGuestFromGuestList';
 export default function PeopleOnTheGuestList(props) {
   return (
     <div css={containerGuestList} data-test-id="guest">
-      <h1>Guest List {props.guestList.length === 0 && ' - no guests'}</h1>
+      <h1>Guest List </h1>
       {props.guestList.map((guest) => (
         <article key={`container_${guest.id}`}>
           <p key={guest.firstName}>
