@@ -74,8 +74,9 @@ function App() {
               <p>
                 <label htmlFor="First name">First name </label>
                 <input
+                  id="First name"
                   value={firstName}
-                  key="01"
+                  key={firstName}
                   onChange={(event) => setFirstName(event.target.value)}
                   disabled={disabled}
                 />
@@ -83,8 +84,9 @@ function App() {
               <p>
                 <label htmlFor="Last name">Last name </label>
                 <input
+                  id="Last name"
                   value={lastName}
-                  key="02"
+                  key={lastName}
                   onChange={(event) => setLastName(event.target.value)}
                   onKeyPress={(event) => handleKeyDown(event)}
                   disabled={disabled}
