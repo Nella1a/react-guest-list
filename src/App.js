@@ -72,7 +72,7 @@ function App() {
             <h2>Add Guest</h2>
             <article>
               <p>
-                <label htmlFor="First name">First Name </label>
+                <label htmlFor="First name">First name </label>
                 <input
                   value={firstName}
                   key="01"
@@ -81,7 +81,7 @@ function App() {
                 />
               </p>
               <p>
-                <label htmlFor="Last name">Last Name </label>
+                <label htmlFor="Last name">Last name </label>
                 <input
                   value={lastName}
                   key="02"
