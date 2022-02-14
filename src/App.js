@@ -63,7 +63,7 @@ function App() {
   const disabled = loading ? true : false;
 
   return (
-    <div data-test-id="guest">
+    <div>
       {loading ? (
         <div css={styleLoadingPage}>Loading...</div>
       ) : (
