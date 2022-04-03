@@ -76,7 +76,6 @@ function App() {
                   First name
                   <input
                     value={firstName}
-                    key={firstName}
                     onChange={(event) => setFirstName(event.target.value)}
                     disabled={disabled}
                   />
@@ -87,7 +86,6 @@ function App() {
                   Last name
                   <input
                     value={lastName}
-                    key={lastName}
                     onChange={(event) => setLastName(event.target.value)}
                     onKeyPress={(event) => handleKeyDown(event)}
                     disabled={disabled}
