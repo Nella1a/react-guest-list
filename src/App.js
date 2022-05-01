@@ -29,6 +29,7 @@ function App() {
   }, []);
 
   console.log('Loading', loading);
+  console.log('Guestlist length', guestList.length);
   // add guest to the guestlist by pressing return in the last name field or add guest button
   async function handleKeyDown(event) {
     if (
